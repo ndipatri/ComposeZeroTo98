@@ -75,11 +75,11 @@ Begin with Android Studio and create a new ‘Basic Compose Activity’.  Create
 
 ## Step 1 - Use Dagger to inject ParticleAPI
 
-### 1_1 - Update project Gradle file (live template 'step1_1_gradle_project')
+### 1_1 - Update project Settings Gradle file (live template 'step1_1_gradle_project')
 
->For the most part, I’m not going to discuss build.gradle file changes and focus on Kotlin.  So i’m just going to quickly modify >the project's gradle files to get what we need.  You can refer to this repo later to see what gradle changes were necessary for >this work.
+>For the most part, I’m not going to discuss Gradle file changes and focus on Kotlin.  So i’m just going to quickly modify >the project's gradle files to get what we need.  You can refer to this repo later to see what gradle changes were necessary for >this work.
 
-Open project **build.gradle** file and delete contents and {insert live template **step1_1**}
+Open project **settings.gradle** file and new repository in the dependencyResolutionManager section {using live template **step1_1**}
 
 
 ### 1_2 - Update app Gradle file (live template 'step1_2_gradle_app')
