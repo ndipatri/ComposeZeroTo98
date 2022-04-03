@@ -69,9 +69,9 @@ The instructions below contain code snippets that have to be typed and 'live tem
 To understand how Andoid Studio Live Templates work, read [this article](https://www.jetbrains.com/help/idea/using-live-templates.html)
 
 
-## Step 0 - Create ‘Basic Activity’
+## Step 0 - Create ‘Basic Compose Activity’
 
-Begin with Android Studio and create a new ‘Basic Activity’.  Create using package/project name: "com.ndipatri.iot.zeroto98"
+Begin with Android Studio and create a new ‘Basic Compose Activity’.  Create using package/project name: "com.ndipatri.iot.composezeroto98"
 
 ## Step 1 - Use Dagger to inject ParticleAPI
 
