@@ -232,7 +232,7 @@ Add content using {insert live template **step1_7**}
 
 
 
- ![Start Here](/startHere.png)
+![Start Here](/startHere.png)
 
 >Jump to here!
 >
