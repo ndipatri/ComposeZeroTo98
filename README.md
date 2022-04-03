@@ -216,9 +216,13 @@ Replace the following code in FirstFragment.kt with {live template step1_6}:
 Run the app to demonstrate!
 
 
+### 1_7 - Use custom Espresso Test Runner (live template 'step1_7_customTestRunner')
 
+>Before we start writing tests for this appliation, there's one more file we have to add.  This file configures our tests so they can use mocks, but we'll talk about that later.
 
+Create the file **app/androidTest/java/com/ndipatri/iot/zeroTo98/EspressoTestRunner**
 
+Add content using {insert live template **step1_7**}
 
 
 
