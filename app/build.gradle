@@ -8,7 +8,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.ndipatri.iot.composezeroto98"
+        applicationId "com.ndipatri.iot.zeroto98"
         minSdk 30
         targetSdk 31
         versionCode 1
@@ -80,9 +80,6 @@ dependencies {
     // Dagger - Dependency Container
     implementation 'com.google.dagger:dagger:2.35.1'
     kapt 'com.google.dagger:dagger-compiler:2.35.1'
-
-    // Kaspresso
-    androidTestImplementation("com.kaspersky.android-components:kaspresso:1.2.0")
 
     // DaggerMock
     androidTestImplementation("com.github.fabioCollini.daggermock:daggermock:0.8.5")

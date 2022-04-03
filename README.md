@@ -71,7 +71,7 @@ To understand how Andoid Studio Live Templates work, read [this article](https:/
 
 ## Step 0 - Create ‘Basic Compose Activity’
 
-Begin with Android Studio and create a new ‘Basic Compose Activity’.  Create using package/project name: "com.ndipatri.iot.composezeroto98"
+Begin with Android Studio and create a new ‘Basic Compose Activity’.  Create using package/project name: "com.ndipatri.iot.zeroto98"
 
 ## Step 1 - Use Dagger to inject ParticleAPI
 
@@ -91,7 +91,7 @@ Open file **app/build.gradle** file and delete contents and {insert live templat
 
 ### 1_3 - Create ParticleAPI class (live template 'step1_3_api')
 
->We’re going to modify the FirstFragment so it can talk to our siren.  We’re going to let the user see the current state of
+>We’re going to modify the MainActivity so it can talk to our siren.  We’re going to let the user see the current state of
 >the siren and turn the siren on and off.
 
 >In order to do that, it will need to create an API object that can make network calls to the Particle Cloud, which is 

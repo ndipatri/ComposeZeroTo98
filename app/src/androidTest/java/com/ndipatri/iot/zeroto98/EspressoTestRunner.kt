@@ -1,4 +1,4 @@
-package com.ndipatri.iot.composezeroto98
+package com.ndipatri.iot.zeroto98
 
 import android.app.Application
 import android.content.Context

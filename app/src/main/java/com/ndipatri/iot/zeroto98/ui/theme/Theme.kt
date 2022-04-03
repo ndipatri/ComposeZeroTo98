@@ -1,4 +1,4 @@
-package com.ndipatri.iot.composezeroto98.ui.theme
+package com.ndipatri.iot.zeroto98.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
@@ -28,7 +28,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun ComposeZeroTo98Theme(
+fun ZeroTo98Theme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {

@@ -1,4 +1,4 @@
-package com.ndipatri.iot.composezeroto98.ui.theme
+package com.ndipatri.iot.zeroto98.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
