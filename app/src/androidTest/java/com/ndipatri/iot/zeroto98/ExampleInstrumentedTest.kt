@@ -1,6 +1,7 @@
 package com.ndipatri.iot.zeroto98
 
 import android.content.Intent
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -38,6 +39,6 @@ class ExampleInstrumentedTest {
         Thread.sleep(5000)
 
         // This only works if the real system is in the 'off' state.
-        rule.onNodeWithText("Red Siren is off")
+        rule.onNodeWithText("The Red Siren is off").assertIsDisplayed()
     }
 }
