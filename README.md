@@ -260,6 +260,9 @@ Add new ‘showCurrentRedSirenState_off’ test
 class MainScreenEspressoTest {
 
     @get:Rule
+    val rule = createComposeRule()    
+    
+    @get:Rule
     val activityTestRule = ActivityTestRule(
         MainActivity::class.java,
         false,

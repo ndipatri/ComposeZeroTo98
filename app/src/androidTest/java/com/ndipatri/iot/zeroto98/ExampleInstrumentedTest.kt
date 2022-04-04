@@ -2,6 +2,7 @@ package com.ndipatri.iot.zeroto98
 
 import android.content.Intent
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import org.junit.Rule
@@ -37,6 +38,6 @@ class ExampleInstrumentedTest {
         Thread.sleep(5000)
 
         // This only works if the real system is in the 'off' state.
-        onView(withId(R.id.textview_first)).check(matches(withText("RedSiren is off!")))
+        rule.onNodeWithText("Red Siren is off")
     }
 }
