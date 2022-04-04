@@ -7,12 +7,14 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
+import com.google.gson.Gson
+import com.ndipatri.iot.zeroto98.api.ParticleAPI
 import okhttp3.OkHttpClient
-import okhttp3.mock.Behavior
-import okhttp3.mock.MockInterceptor
+import okhttp3.mock.*
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.net.HttpURLConnection
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -46,6 +48,29 @@ class MainActivityEspressoTest {
 
     @Test
     fun showCurrentRedSirenState_off() {
+
+        val response = ParticleAPI.ParticleRESTInterface.SirenStateResponse().apply {
+            result = "off"
+        }
+        mockInterceptor.rule(
+            get,
+            path eq "/v1/devices/e00fce68c9dc54448dfe8f89/sirenState",
+            times = anyTimes
+        ) {
+            respond(HttpURLConnection.HTTP_OK) {
+                body(Gson().toJson(response), MediaTypes.MEDIATYPE_JSON)
+            }
+        }
+
+        mockInterceptor.rule(
+            post,
+            path eq "/v1/devices/e00fce68c9dc54448dfe8f89/sirenOn",
+            times = anyTimes
+        ) {
+            respond(HttpURLConnection.HTTP_OK) {
+                body(Gson().toJson(response), MediaTypes.MEDIATYPE_JSON)
+            }
+        }
 
         activityTestRule.launchActivity(Intent())
 

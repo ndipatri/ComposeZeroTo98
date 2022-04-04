@@ -462,7 +462,7 @@ Run the test and show the Logger output where MockInterceptor is complaining bec
 
 ### 6_1 - Configure MockInterceptor (live template 'step6_1_configureMockInterceptor')
 
-Open the file **app/src/androidTest/java/com/ndipatri/iot/zeroto98/ExampeInstrumentedTest.kt** and insert the live template code as shown:
+Open the file **app/src/androidTest/java/com/ndipatri/iot/zeroto98/MainActivityEspressoTest.kt** and insert the live template code as shown:
 
 ```kotin
 @Test
