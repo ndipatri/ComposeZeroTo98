@@ -231,7 +231,7 @@ Add content using {insert live template **step1_7**}
 >Let’s start by writing a very simple Espresso test.
 
 
-Open **app/androidTest/java/com/ndipatri/iot/zeroTo98/ExampeInstrumentedTest.kt**
+Open **app/androidTest/java/com/ndipatri/iot/zeroTo98/ExampleInstrumentedTest.kt**
 
 Delete existing test.
 
