@@ -58,6 +58,6 @@ class ParticleAPI(okHttpClient: OkHttpClient) {
     }
 
     companion object {
-        const val particleToken = "{particle access token goes here}"
+        const val particleToken = "ee6f891181ce5aa1bdbfabcf0d8ebcf4f8c03cfb"
     }
 }

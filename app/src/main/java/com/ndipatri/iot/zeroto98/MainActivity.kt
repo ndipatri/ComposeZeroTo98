@@ -3,18 +3,33 @@ package com.ndipatri.iot.zeroto98
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.lifecycleScope
+import com.ndipatri.iot.zeroto98.api.ParticleAPI
 import com.ndipatri.iot.zeroto98.ui.theme.ZeroTo98Theme
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var particleAPI: ParticleAPI
+
+    var sirenState = mutableStateOf("Standby ...")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        ApplicationComponent.createIfNecessary().inject(this)
+
         setContent {
             ZeroTo98Theme {
                 // A surface container using the 'background' color from the theme
@@ -22,22 +37,33 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    Column(Modifier.fillMaxWidth().padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text(text = "Redsiren is ${sirenState.value}")
+                        OutlinedButton(onClick = {
+                            lifecycleScope.launch {
+                                if (sirenState.value == "on") {
+                                    particleAPI.particleInterface.turnOffRedSiren()
+                                } else {
+                                    particleAPI.particleInterface.turnOnRedSiren()
+                                }
+                                updateSirenState()
+                            }
+                            sirenState.value = "Standby..."
+
+                        }) {
+                            Text("Turn Siren ${if (sirenState.value == "off") "On" else "Off"}")
+                        }
+                    }
                 }
             }
         }
+
+        updateSirenState()
     }
-}
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    ZeroTo98Theme {
-        Greeting("Android")
+    private fun updateSirenState() {
+        lifecycleScope.launch {
+            sirenState.value = particleAPI.particleInterface.getSirenState().result!!
+        }
     }
 }

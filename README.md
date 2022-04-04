@@ -167,50 +167,22 @@ class ApplicationComponent {
 >The ‘component’ property is instantiated the first time we call ‘createIfNecessary()’ and returned.  Notice the ‘component’ property can be re-assigned.  This will be important later when we start writing tests.  Now our ApiModule and the ParticleAPI are available to be injected into our ‘FirstFragment’”
 
 
-### 1_6 - FirstFragment uses injected ParticleAPI to update view and control siren (live template 'step1_6_firstFragment')
+### 1_6 - MainActivity uses injected ParticleAPI to update view and control siren (live template 'step1_6_firstFragment')
 
->Our FirstFragement can now be changed to use our injected ParticleAPI to update status and control our siren.”
+>First we need to update this app to allow for network calls.
 
-Open **app/src/main/java/com.ndipatri.iot.zerioto98/FirstFragment.kt**
-
-Type the following near the top of FirstFragment.kt
-
-```kotlin
-@Inject
-lateinit var particleAPI: ParticleAPI
-```
-
->This tells Dagger to assign its ParticleAPI dependency to this local property.  We need to use our static reference to the Dagger component we created early now to ‘inject’ this FirstFragment into the Dagger dependency graph.
-
-Type the following near the beginning of the **onCreateView()** method in FirstFragment.kt
-
-```kotlin
-ApplicationComponent.createIfNecessary().inject(this)
-```
-
->When we make this ‘inject()’ call, the ParticleAPI property is assigned.
-
->We need to update this app to allow for network calls.  
-
-Add the following to AndroidManifest.xml
+Add the following to top of AndroidManifest.xml
 
 ```kotlin
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
->Now we update this Fragment to use this injected API to query the current status of the siren and display it.  
->This Fragment also provides a button to toggle the on/off state of the siren”
 
-Replace the following code in FirstFragment.kt with {live template step1_6}:
+>Our MainActivity can now be changed to use our injected ParticleAPI to update status and control our siren.”
+> 
+> Open file **app/src/main/java/com.ndipatri.iot.zerioto98/MainActivity.kt** file and delete contents and {insert live template **step1_6**}
 
-```kotlin
-       binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
-}
-```
-
->Now we display the current state of the siren at the top of the Fragment and at the bottom of the fragment we have a toggle button.
+>Now we display the current state of the siren at the top of the Activity and at the bottom of the Activity we have a toggle button.
 
 
 Run the app to demonstrate!
@@ -218,7 +190,7 @@ Run the app to demonstrate!
 
 ### 1_7 - Use custom Espresso Test Runner (live template 'step1_7_customTestRunner')
 
->Before we start writing tests for this appliation, there's one more file we have to add.  This file configures our tests so they can use mocks, but we'll talk about that later.
+>Before we start writing tests for this application, there's one more file we have to add.  This file configures our tests so they can use mocks, but we'll talk about that later.
 
 Create the file **app/androidTest/java/com/ndipatri/iot/zeroTo98/EspressoTestRunner**
 
