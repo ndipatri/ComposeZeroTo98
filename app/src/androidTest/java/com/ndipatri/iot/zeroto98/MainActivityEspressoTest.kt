@@ -7,6 +7,9 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
+import okhttp3.OkHttpClient
+import okhttp3.mock.Behavior
+import okhttp3.mock.MockInterceptor
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -17,7 +20,19 @@ import org.junit.runner.RunWith
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+class MainActivityEspressoTest {
+
+    // This can be used to inject 'fake' OkHttpClient responses for testing
+    // purposes.  In this way, the system can make real network calls but will result
+    // in mocked network responses.
+    private val mockInterceptor = MockInterceptor(Behavior.UNORDERED)
+
+    private val okHttpClient = OkHttpClient.Builder()
+        .addInterceptor(mockInterceptor)
+        .build()
+
+    @get:Rule
+    val componentRule = ApplicationComponentTestRule(okHttpClient)
 
     @get:Rule
     val rule = createComposeRule()

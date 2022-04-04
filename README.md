@@ -196,9 +196,11 @@ Create the file **app/androidTest/java/com/ndipatri/iot/zeroTo98/EspressoTestRun
 
 Add content using {insert live template **step1_7**}
 
+### 1_8 - Rename the ExampleInstrumentedTest to MainActivityEspressoTest
 
+>And let's rename our Espresso test file for clarity.
 
-
+Rename the file **app/androidTest/java/com/ndipatri/iot/zeroTo98/ExampleInstrumentedTest** to **app/androidTest/java/com/ndipatri/iot/zeroTo98/MainActivityEspressoTest** 
 
 
 
@@ -243,7 +245,7 @@ Add a new **ActivityTestRule** using {insert live template **step2_1**}
 
 ```kotlin
 @RunWith(AndroidJUnit4::class)
-class MainScreenEspressoTest {
+class MainActivityEspressoTest {
 
     {insert live template step2_1}
 
@@ -260,7 +262,7 @@ Add new ‘showCurrentRedSirenState_off’ test
 
 ```kotlin
 @RunWith(AndroidJUnit4::class)
-class MainScreenEspressoTest {
+class MainActivityEspressoTest {
 
     @get:Rule
     val rule = createComposeRule()    
@@ -422,9 +424,12 @@ class ApplicationComponentTestRule(okHttpClient: OkHttpClient) :
 Open file **app/src/androidTest/java/com/ndipatri/iot/zeroto98/ExampeInstrumentedTest.kt** and insert live template as shown:
 
 ```kotlin
-class MainActivityEspressoTest : TestCase() {
+class MainActivityEspressoTest() {
 
     {insert live template step5_2}
+
+    @get:Rule
+    val rule = createComposeRule()
 
     @get:Rule
     val activityTestRule = ActivityTestRule(
