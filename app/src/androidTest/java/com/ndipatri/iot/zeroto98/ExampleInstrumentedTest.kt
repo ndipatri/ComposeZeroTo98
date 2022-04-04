@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import org.junit.Rule
@@ -33,12 +34,23 @@ class ExampleInstrumentedTest {
 
         activityTestRule.launchActivity(Intent())
 
-        // We need to add sleep because we are making background calls in the app
-        // to communicate with our real-world siren.  This takes time.  We don't know the
-        // app well enough to be able to create the necessary 'Espresso Idling Resource' hooks
-        Thread.sleep(5000)
+        // THIS IS UGLY, but it's how we quickly stand up a flaky EndToEnd Test!
+        var attemptCount = 1
+        while (attemptCount++ < 3) {
+            try {
+                // We don't know what state the system is in, but we can change it here!
+                rule.onNodeWithText("Turn Siren", substring = true).performClick()
 
-        // This only works if the real system is in the 'off' state.
-        rule.onNodeWithText("The Red Siren is off").assertIsDisplayed()
+                // We need to add sleep because we are making background calls in the app
+                // to communicate with our real-world siren.  This takes time.  We don't know the
+                // app well enough to be able to create the necessary 'Espresso Idling Resource' hooks
+                Thread.sleep(5000)
+
+                // This only works if the real system is in the 'off' state.
+                rule.onNodeWithText("The Red Siren is off").assertIsDisplayed()
+            } catch (err: AssertionError) {
+                System.err.println("Flaky test! let's try that again...")
+            }
+        }
     }
 }

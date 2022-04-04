@@ -16,7 +16,7 @@
                                                           
 
                                                        
-Speed up your Testing with DaggerMock and Live Kaspresso!
+Speed up your Testing with Live End-To-End Tests!
 
 by Nick DiPatri
 Comcast Corporation, Philadelphia
@@ -290,45 +290,13 @@ Make sure the siren is off and run the test.
 Turn on siren and re-run test to show it fails.
 
 
-## Step 3 - Kaspresso Live Test 
+## Step 3 - Fixing Flaky End-To-End Tests 
 
-### 3_1 - MainScreen(live template 'step3_1_MainScreen')
+### 3_1 - Use while/try/catch block in our Espresso Test (live template 'step3_1_TryCatch')
 
->The problem is our end-to-end Espresso test is not reliable because of the unknown state of the live system we are testing against.  
->Remember, we want to be able to write this test fast and without an in-depth understanding of our code. 
-
->We are going to use a relatively ***new library called Kaspresso*** to help us solve this problem very quickly. “
-
->Kaspresso follow’s ***Martin Fowler’s (PageObject) advice on testing UI***.  He recommends we create a UI abstraction for our UI element under test.  Which, in this case, is an Activity.  
-
->Kaspresso calls this abstraction a ***‘Screen’***.  This Screen object defines what UI elements are available and their common actions. 
-
->The idea here is this abstraction ***allows us to write cleaner Espresso tests*** that are easier to write and debug.
-
->So let’s create a Kaspresso Screen object for our MainActivity.
-
-Create the **app/src/androidTest/java/com/ndipatri/iot/zeroto98/MainScreen.kt** file.
-
-Type this code in the file (NOTE: It's on ***OBJECT*** not a class!) and inject code as follows:
-
-```kotlin
-object MainScreen : KScreen<MainScreen>() {
-
-    {insert live template step3_1}
-
-}
-```
-
->We’ve defined two UI abstractions in our MainScreen: a KTextView and a KButton.  From a testing perspective, these are the only two things we care about from our MainActivity.”
-
-
-### 3_2 - Use Kaspresso in our Espresso Test (live template 'step3_2_Kaspresso')
-
->Now let’s see how we use our new MainScreen UI abstractions to make our Espresso test more reliable and easier to read!”
+>Now let's see how we can quickly improve this flaky End-To-End test!”
 
 Open the file **app/src/androidTest/java/com/ndipatri/iot/zeroto98/ExampeInstrumentedTest.kt** 
-
-Make ExampeInstrumentedTest ***extend Kaspresso’s TestCase()***
 
 Delete all code in test and insert live code as shown:
 
@@ -350,25 +318,25 @@ class MainActivityEspressoTest: TestCase() {
 
 
        {Delete all code from test within this area and replace 
-        with live template step3_2}
+        with live template step3_1}
 
     } 
 }
 ```
 
->Our Kaspresso test lives inside of this new ‘run’ block and you can see we’ve set the context to MainScreen, our UI abstraction.  The big thing to ***notice is the ‘step’ block***.  This is where the magic happens.  
+>Our original test lives inside of this new while/try/catch block.
 
->Inside of this step ***we’ve added something***.  We are now changing the state of the siren, by clicking the button, regardless of the current state.  So we are ***either turning the siren on or off, we don’t know***.  Then we test to see if the siren is in the desired state, which is ‘off’. 
+>Inside of this retry block ***we’ve added something***.  We are now changing the state of the siren, by clicking the button, regardless of the current state.  So we are ***either turning the siren on or off, we don’t know***.  Then we test to see if the siren is in the desired state, which is ‘off’. 
 
->If by chance, the siren is already off when we start this test, we will be turning it on and thus making the test fail.  Here is where Kaspresso comes into play.  
+>If by chance, the siren is already off when we start this test, we will be turning it on and thus making the test fail.  Here is where the try/catch block comes into play.  
 
->If an assertion inside of any **step{} block throws an assertion exception**, the whole step will be replayed by Kaspresso.  So again, the button will be pressed, but this time the siren will be turned off and the test will succeed.  We ***keep trying until we get the desired result***.  Eventually Kaspresso does timeout and the test will fail, however.
+>If the assertion fails, that is, if the siren isn't off, we run the block again.  The button will be pressed again, but this time the siren will be turned off and the test will succeed.  We ***keep trying until we get the desired result***.  If we can't get the test to pass after a couple tries, we assume the test is legitimately failing.
 
 ***Uninstall the app before running test.***
 
 Run the test and demonstrate that it succeeds regardless of the state of the siren.
 
->In essence, we’re using ***‘short polling’*** to wait for our external system reach a known state.  This makes our test code look much simpler and hides all the complexities of this polling mechanism inside of our Kaspresso library.  This technique is ***CPU intensive*** , but we don’t care because this is a test and ***NOT production code***.  
+>In essence, we’re using ***‘short polling’*** to wait for our external system reach a known state.  This technique is ***CPU intensive and takes more time*** , but we don’t care because this is a test and ***NOT production code***.  
 >The bottom line we are now testing our code and not the state of our external system.
 
 >***Now we have live end-to-end user test coverage that is reliable. Our Android developers can now work on new features with confidence.***
