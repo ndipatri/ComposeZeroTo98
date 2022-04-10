@@ -247,7 +247,7 @@ Rename the file **app/androidTest/java/com/ndipatri/iot/zeroTo98/ExampleInstrume
 >Let’s start by writing a very simple Espresso test.
 
 
-Open **app/androidTest/java/com/ndipatri/iot/zeroTo98/ExampleInstrumentedTest.kt**
+Open **app/androidTest/java/com/ndipatri/iot/zeroTo98/MainActivityEspressoTest.kt**
 
 Delete existing test.
 
@@ -263,7 +263,7 @@ class MainActivityEspressoTest {
 }
 ```
 
->The ActivityTestRule is how Espresso starts a test.
+>The ActivityTestRule is how Espresso starts a test. 
 
 
 
@@ -291,7 +291,7 @@ class MainActivityEspressoTest {
 }
 ```
 
->Here we have a simple test that asserts our Fragment’s views when the siren is off. 
+>Here we have a simple test that asserts our MainActivity’s views when the siren is off. 
  
 >Remember with Espresso, our ***tests run in a separate thread*** from the app itself.  We need an explicit delay here because it takes a bit of ***time to query Particle for the current state of the siren***. If we knew more about the code itself, remember we’re new developers on this project, we could ‘synchronize’ this test with our app using ***Idling Resources***, but we’re trying to go from ***0 to 98 very quickly*** and don't know much about the code.  So we'll keep this explicit delay for our end-to-end test for now. 
 
@@ -305,13 +305,13 @@ Turn on siren and re-run test to show it fails.
 
 ## Step 3 - Fixing Flaky End-To-End Tests 
 
-### 3_1 - Use while/try/catch block in our Espresso Test (live template 'step3_1_TryCatch')
+### 3_1 - Use while/try/catch block in our Espresso Test (live template 'step3_1_tryCatch')
 
 >Now let's see how we can quickly improve this flaky End-To-End test!”
 
-Open the file **app/src/androidTest/java/com/ndipatri/iot/zeroto98/ExampeInstrumentedTest.kt** 
+Open the file **app/src/androidTest/java/com/ndipatri/iot/zeroto98/MainActivityEspressoTest.kt** 
 
-Delete all code in test and insert live code as shown:
+As described below, delete part of the test and insert live code as shown:
 
 ```kotlin
 @RunWith(AndroidJUnit4::class)
@@ -432,7 +432,7 @@ class ApplicationComponentTestRule(okHttpClient: OkHttpClient) :
 
 ### 5_2 - Use DaggerMockRule in our test (live template 'step5_2_useDaggerMockRule')
 
-Open file **app/src/androidTest/java/com/ndipatri/iot/zeroto98/ExampeInstrumentedTest.kt** and insert live template as shown:
+Open file **app/src/androidTest/java/com/ndipatri/iot/zeroto98/MainActivityEspressoTest.kt** and insert live template as shown:
 
 ```kotlin
 class MainActivityEspressoTest() {
@@ -497,7 +497,7 @@ fun showCurrentRedSirenState_off() {
 >Remember, we did this as a means of getting our live system to a known state.  
 >Since we using mocks, we are disconnected from the live system and ***no longer have to do this***.
 
->The ‘UI polling’ feature of Kapsresso is no longer necessary, but we keep using it for other features it provides.
+>The ‘UI polling’ feature of our try/catch block is no longer necessary, but we keep using it for other features it provides.
 
 Run the test to show that we now have an end-to-end test of our application with the external dependency mocked.
 
