@@ -27,9 +27,11 @@ Comcast Corporation, Philadelphia
 
 This is a code-lab and a presentation! After the brief introduction below, this code-lab proceeds with specific instructions to build up a working Android application that controls a remote Red Siren.  The code-lab also contains speaker notes so this can be done in front of an audience.  
 
-The focus of the code-lab is on testing, but in order for the code-lab to work, you will need to build the Red Siren.  It's based on a Particle Argon Microcontroller.  You can buy this on Amazon, plug it in and it's ready.  Although the Red Siren is a bit more involved, the simple Particle Argon powered by USB can be used with the same Particle code which is included here: 
+The focus of the code-lab is on testing, but in order for the code-lab to work, you will need to build the Red Siren.  It's based on a Particle Argon Microcontroller (https://store.particle.io/collections/wifi/products/argon-kit).  You can plug it in and it's ready.  Although the Red Siren is a bit more involved, the simple Particle Argon powered by USB can be used with the same Particle code which is included here: 
 
-https://github.com/ndipatri/ComposeZeroTo98/tree/main/particleFirmware/workbench/redSiren
+https://github.com/ndipatri/ComposeZeroTo98/tree/main/particleFirmware/workbench/redSiren.
+
+The Particle is 'Arduino-based' so really any similar IOT device will do!
 
 
 ### If you are presenting this to others, here's your checklist:
