@@ -117,8 +117,9 @@ class ParticleAPI {
 }
 ```
 
+In the above code just inserted, you will need to update the 'deviceId' and 'particleToken' with the real values from your own Particle Argon device and account.
 
->This ParticleAPI will be an external dependency to our FirstFragment.
+>This ParticleAPI will be an external dependency to our MainActivity.
 
 >Testing is about controlling external dependencies.  The first step in doing this is using a dependency injection
 >framework such as Dagger.
@@ -169,11 +170,12 @@ class ApplicationComponent {
        fun provideParticleAPI(): ParticleAPI {
            return ParticleAPI()
        }
+       ...
    }
 }
 ```
 
->The ‘component’ property is instantiated the first time we call ‘createIfNecessary()’ and returned.  Notice the ‘component’ property can be re-assigned.  This will be important later when we start writing tests.  Now our ApiModule and the ParticleAPI are available to be injected into our ‘FirstFragment’”
+>The ‘component’ property is instantiated the first time we call ‘createIfNecessary()’ and returned.  Notice the ‘component’ property can be re-assigned.  This will be important later when we start writing tests.  Now our ApiModule and the ParticleAPI are available to be injected into our ‘MainActivity’”
 
 
 ### 1_6 - MainActivity uses injected ParticleAPI to update view and control siren (live template 'step1_6_firstFragment')
@@ -360,7 +362,7 @@ Run the test and demonstrate that it succeeds regardless of the state of the sir
 
 >I’m still calling it an ‘end-to-end’ test because we want to ***mock NOTHING internal*** to our application, just the network call itself.
 
->Let’s take a ***look back at the ParticleAPI*** dependency that we’re injecting into our FirstFragment because this is where we make our network call.
+>Let’s take a ***look back at the ParticleAPI*** dependency that we’re injecting into our MainActivity because this is where we make our network call.
 
 
 ## Step 4 - Look at ParticleAPI in DaggerComponent
