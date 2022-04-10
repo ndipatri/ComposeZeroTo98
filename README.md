@@ -21,9 +21,13 @@ Speed up your Testing with Live End-To-End Tests!
 by Nick DiPatri
 Comcast Corporation, Philadelphia
 
-<https://github.com/ndipatri/ZeroTo98/>
+<https://github.com/ndipatri/ComposeZeroTo98/>
 
+# Introduction
 
+This is a code-lab and a presentation! After the brief introduction below, this code-lab proceeds with specific instructions to build up a working Android application that controls a remote Red Siren.  The code-lab also contains speaker notes so this can be done in front of an audience.  
+
+The focus of the code-lab is on testing, but in order for the code-lab to work, you will need to build the Red Siren.  It's based on a Particle Argon Microcontroller.  You can buy this on Amazon, plug it in and it's ready.  Although the Red Siren is a bit more involved, the simple Particle Argon powered by USB can be used with the same Particle code which is included here: https://github.com/ndipatri/ComposeZeroTo98/
 
 
 ### If you are presenting this to others, here's your checklist:
@@ -33,15 +37,16 @@ Comcast Corporation, Philadelphia
 3. Restart IDE! (so it doesn't OOM during talk)
 4. Code checked out 
 
->Check out [Step 1 branch](https://github.com/ndipatri/ZeroTo98/tree/step1_workingNoTests) if skipping building the init app.
+>Check out [Step 1 branch](https://github.com/ndipatri/ComposeZeroTo98/tree/step1_workingNoTests) if skipping building the init app.
 
 5. Code deployed to phone BUT STOP THE APP.
 6. Disconnect all real devices except test device.
-7. IDE open, Project panel collapsed. IDE sized to show Vizor-enabled device on the right side (emulator is too slow)
-8. Turn off computer notifications
-9. I recommend presenting this README on your IDE in Presentation Mode.\
-10. Put IDE in Presentation Mode
-11. Read this:
+7. IDE open, Project panel collapsed.
+8. Use DeviceManager to WipeData and Cold Boot an API30 device (e.g. Pixel 5).
+9. Turn off computer notifications
+10. I recommend presenting this README on your IDE in Presentation Mode.\
+11. Put IDE in Presentation Mode
+12. Read this:
 
 >The prototype-to-production pipeline for mobile applications doesn’t always have the luxury of test-driven development. As a result, some production code has very ***low unit test coverage***.
 
@@ -60,7 +65,7 @@ Comcast Corporation, Philadelphia
 
 
 
-# Presentation
+# CodeLab
 
 For each of the following steps (1,2,3,4,5,6), there is a branch in this repo that represents that step with all of its code changes completed.
 
@@ -79,7 +84,7 @@ Begin with Android Studio and create a new ‘Basic Compose Activity’.  Create
 
 >For the most part, I’m not going to discuss Gradle file changes and focus on Kotlin.  So i’m just going to quickly modify >the project's gradle files to get what we need.  You can refer to this repo later to see what gradle changes were necessary for >this work.
 
-Open project **settings.gradle** file and new repository in the dependencyResolutionManager section {using live template **step1_1**}
+Open project **settings.gradle** file and add an additional entry for the 'jitpack.io' repo to the dependencyResolutionManager section {using live template **step1_1**}
 
 
 ### 1_2 - Update app Gradle file (live template 'step1_2_gradle_app')
