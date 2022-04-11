@@ -58,7 +58,7 @@ The Particle is 'Arduino-based' so really any similar IOT device will do!
 11. Put IDE in Presentation Mode
 12. Read this:
 
->The prototype-to-production pipeline for mobile applications doesn’t always have the luxury of test-driven development. Even in large companies with institutionalized testing strategies this can happen. As a result, some production code has very ***low unit test coverage***.  Even 
+>The prototype-to-production pipeline for mobile applications doesn’t always have the luxury of test-driven development. Even in large companies with institutionalized testing strategies this can happen. As a result, some production code has very ***low unit test coverage***.  
 
 >Today we’re going to learn how to use Espresso in new ways to ***quickly stand up live end-to end integration tests***.  These tests give us confidence so that we can safely move ahead with feature changes while we slowly ***build up our unit test coverage from 0 to 98 percent***, a process which can take weeks or months!
 
