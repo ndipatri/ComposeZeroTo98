@@ -62,7 +62,9 @@ The Particle is 'Arduino-based' so really any similar IOT device will do!
 
 >Today we’re going to learn how to use Espresso in new ways to ***quickly stand up live end-to end integration tests***.  These tests give us confidence so that we can safely move ahead with feature changes while we slowly ***build up our unit test coverage from 0 to 98 percent***, a process which can take weeks or months!
 
-12. ***Take IDE OUT of Presentation mode and show Project***
+>This will be a live-coding presentation and everything I'm about to do is available as a code-lab available at the GitHub link shown here.
+
+13. ***Take IDE OUT of Presentation mode and show Project***
 
 13. Read this:
 
