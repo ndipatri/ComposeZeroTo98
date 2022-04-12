@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     Column(Modifier.fillMaxWidth().padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text(text = "Redsiren is ${sirenState.value}")
+                        Text(text = "Red Siren is ${sirenState.value}")
                         OutlinedButton(onClick = {
                             lifecycleScope.launch {
                                 if (sirenState.value == "on") {
