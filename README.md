@@ -372,7 +372,7 @@ Run the test and demonstrate that it succeeds regardless of the state of the sir
 
 >Let’s assume that ***some time has passed*** and we now can spend a few moments converting this from a live end-to-end test to a mock end-to-end test. We’ll need to ***mock our external dependency*** which in this case is the network call to the Particle Cloud.
 
->I’m still calling it an ‘end-to-end’ test because we want to ***mock NOTHING internal*** to our application, just the network call itself.
+>I’m still calling it an ‘end-to-end’ test because we want to ***mock NOTHING internal*** to our application, just the network call itself. Espresso tests are very costly in both how long they take to run and the support required to maintain them.  We should defer most of our testing to unit tests and only use Espresso for such End-to-End integration tests.
 
 >Let’s take a ***look back at the ParticleAPI*** dependency that we’re injecting into our MainActivity because this is where we make our network call.
 
