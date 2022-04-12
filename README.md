@@ -359,7 +359,7 @@ class MainActivityEspressoTest: TestCase() {
 
 Run the test and demonstrate that it succeeds regardless of the state of the siren.
 
-***Use 'Flaky' string search with 'No Filter' selected in LogCat to show the re-tries
+***Use 'Flaky' string search with 'No Filter' selected in LogCat to show the re-tries***
 
 >In essence, we’re using ***‘short polling’*** to wait for our external system reach a known state.  This technique is ***CPU intensive and takes more time*** , but we don’t care because this is a test and ***NOT production code***.  
 >The bottom line we are now testing our code and not the state of our external system.
