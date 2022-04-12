@@ -2,11 +2,21 @@ package com.ndipatri.iot.zeroto98
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
-
 import org.junit.Test
 import org.junit.runner.RunWith
-
 import org.junit.Assert.*
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
+import androidx.test.rule.ActivityTestRule
+import com.google.gson.Gson
+import com.ndipatri.iot.zeroto98.api.ParticleAPI
+import okhttp3.OkHttpClient
+import okhttp3.mock.*
+import org.junit.Rule
+import java.net.HttpURLConnection
+
 
 /**
  * Instrumented test, which will execute on an Android device.
