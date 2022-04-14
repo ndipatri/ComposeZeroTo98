@@ -42,7 +42,7 @@ The Particle is 'Arduino-based' so really any similar IOT device will do!
 
 ### If you are presenting this to others, here's your checklist:
 
-1. Power-up siren and put it on desk (the app will crash if siren isn't on)
+1. Power-up siren and put it on the desk in front of you
 2. Use 'particle' CLI tool (particle token list) to make sure particleToken value in ParticleAPI.kt is still valid.
 3. Restart IDE! (so it doesn't OOM during talk)
 4. Code checked out
