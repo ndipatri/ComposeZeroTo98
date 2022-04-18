@@ -246,7 +246,7 @@ Rename the file **app/androidTest/java/com/ndipatri/iot/zeroTo98/ExampleInstrume
 
 ### 2_1 - Start with ActivityTestRule (live template 'step1_1_activityTestRule')
 
->Now let's assume our app has been deployed and distributed to many users. Let’s assume our app is ***way more complicated than what we just built and that it has NO unit tests***.  Let’s assume the app has all ***new developers who don't know the app***.
+>Now let's assume we want to deploy our application to potentially millions of users. Let’s assume our app is ***way more complicated than what we just built and that it has NO unit tests***.  Let’s assume the app has all ***new developers who don't know the app***.
 
 >***How do we proceed with feature development*** when we don’t know if we are breaking the app and its many wonderful features?
 
