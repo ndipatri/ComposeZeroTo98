@@ -49,14 +49,15 @@ The Particle is 'Arduino-based' so really any similar IOT device will do!
 
 >Check out [Step 1 branch](https://github.com/ndipatri/ComposeZeroTo98/tree/step1_workingNoTests) if skipping building the init app.
 
-5. Code deployed to phone BUT STOP THE APP.
-6. Disconnect all real devices except test device.
-7. IDE open, Project panel collapsed.
-8. Use DeviceManager to WipeData and Cold Boot an API30 device (e.g. Pixel 5).
-9. Turn off computer notifications
-10. I recommend presenting this README on your IDE in Presentation Mode. All you're showing is the title screen.
-11. Put IDE in Presentation Mode
-12. Read this:
+5. Update 'ParticleRESTInterface' with working Particle auth token.
+6. Code deployed to phone BUT STOP THE APP.
+7. Disconnect all real devices except test device.
+8. IDE open, Project panel collapsed.
+9. Use DeviceManager to WipeData and Cold Boot an API30 device (e.g. Pixel 5).
+10. Turn off computer notifications
+11. I recommend presenting this README on your IDE in Presentation Mode. All you're showing is the title screen.
+12. Put IDE in Presentation Mode
+13. Read this:
 
 >Hello everyone, this is 'From Zero to 98 ...'
 
